@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+{% block css %}
+{% endblock %}
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <!-- Main Header -->
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>E</b>A</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>ENV</b>ANALYSE</span>
+    </a>
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <!-- /.messages-menu -->
+          <!-- User Account Menu -->
+          <li class="dropdown notifications-menu">
+{#              class="dropdown-toggle" data-toggle="dropdown"#}
+            <a href="{{ url_for("core.global_view") }}" title="全局可视化">
+              <i class="fa fa-eye"></i>
+              <span class="label label-success"></span>
+            </a>
+          </li>
+          <li class="dropdown notifications-menu">
+{#              class="dropdown-toggle" data-toggle="dropdown"#}
+            <a href="{{ url_for("core.notice") }}" title="系统通知">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-success notice"></span>
+            </a>
+
+{#            <ul class="dropdown-menu">#}
+{#              <li class="header">You have 10 notifications</li>#}
+{#              <li>#}
+{#                <!-- inner menu: contains the actual data -->#}
+{#                <ul class="menu">#}
+{#                  <li>#}
+{#                    <a href="#">#}
+{#                      <i class="fa fa-users text-aqua"></i> 5 new members joined today#}
+{#                    </a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#">#}
+{#                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the#}
+{#                      page and may cause design problems#}
+{#                    </a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#">#}
+{#                      <i class="fa fa-users text-red"></i> 5 new members joined#}
+{#                    </a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#">#}
+{#                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made#}
+{#                    </a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#">#}
+{#                      <i class="fa fa-user text-red"></i> You changed your username#}
+{#                    </a>#}
+{#                  </li>#}
+{#                </ul>#}
+{#              </li>#}
+{#              <li class="footer"><a href="#">View all</a></li>#}
+{#            </ul>#}
+          </li>
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">Wellcome {{ current_user.username }}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <p>
+                  欢迎您 {{ current_user.username }}
+{#                  <small>当前时间：</small>#}
+                </p>
+
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="{{ url_for("user.user_profile") }}" class="btn btn-default btn-flat">修改信息</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{{ url_for("user.user_logout") }}" class="btn btn-default btn-flat">退出</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+        {% block side %}{% endblock %}
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+    {% block body %}{% endblock %}
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2019 <a href="#">hector will</a>.</strong> All rights reserved.
+  </footer>
+
+
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED JS SCRIPTS -->
+
+{% block script %}{% endblock %}
+    <script src="https://cdn.bootcdn.net/ajax/libs/socket.io/3.0.0-rc4/socket.io.min.js"></script>
+<script type="text/javascript">
+    {# 定义开关发送ajax请求函数#}
+
+    {#    $(function(){#}
+    {#    setInterval(function() {#}
+    {#    $.ajax({#}
+    {#            //请求方式#}
+    {#            type : "POST",#}
+    {#            //请求地址#}
+    {#            url : "/notice_count",#}
+    {#            //请求成功#}
+    {#            success : function(result) {#}
+    {#                //当通知条数大于0时#}
+    {#                if(result.count){$(".notice").text(result.count);}#}
+    {#            }#}
+    {#        });#}
+    {#    },1000);#}
+    {#});#}
+</script>
+</body>
+</html>
