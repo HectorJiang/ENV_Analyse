@@ -2,7 +2,7 @@
 
 <img src="https://typora-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20210102004730742.png" alt="image-20210102004730742" style="zoom: 67%;" />
 
-## Secord-Generation Architecture:
+## Sencond-Generation Architecture:
 on-going....
 
 ## Delopy with simple bash
